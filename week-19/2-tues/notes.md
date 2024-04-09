@@ -19,6 +19,7 @@
 Before we look at Express, lets talk about servers. Remember in mod 3, when we were working with servers and postman, there was this ugly syntax code for setting up a vanilla server with Javascript. Here is an example:
 
 ```js
+const http = require('http');
 
 const server = http.createServer((req, res) => {
   if (req.method === 'GET' && req.url === '/') {
@@ -31,6 +32,12 @@ const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'text/plain');
     return res.end('Created a Cat!');
   }
+});
+
+const port = 8000;
+
+server.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}/`);
 });
 
 
