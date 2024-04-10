@@ -1,20 +1,51 @@
-const http = require('http');
+const express = require('express');
 
-const server = http.createServer((req, res) => {
-    if (req.method === 'GET' && req.url === '/') {
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'text/plain');
-        return res.end('Splash Page');
+const app = express();
+
+app.use(express.json());
+
+
+
+app.get('/', (req, res, next) => {
+    try {
+        res.send(":)");
+    } catch (error) {
+        res.send(error.message)
     }
-    if (req.method === 'POST' && req.url === '/cat') {
-        res.statusCode = 201;
-        res.setHeader('Content-Type', 'text/plain');
-        return res.end('Created a Cat!');
+})
+
+app.post('/',(req, res, next) => {
+    try {
+        console.log(req.body)
+        const {username} = req.body;
+        if(username === "anthonybronca"){
+            res.json({
+                "message": "You are signed int"
+            })
+        } else{
+            throw new Error("Bad username")
+        }
+    } catch (error) {
+        res.send(error.message)
     }
+
+})
+
+
+app.put('/', (req, res, next)=> {
+    //do stuff to update here
 });
+
+app.patch('/', (req, res, next)=> {
+    // do stuff to update here
+});
+
+app.delete('/', (req, res, next)=> {
+    // do stuff to deletr
+})
+
+
 
 const port = 8000;
 
-server.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}/`);
-});
+app.listen(port, ()=> console.log('Now listenign on port: ', port))

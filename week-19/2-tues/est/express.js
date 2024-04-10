@@ -3,11 +3,14 @@ const express = require('express');
 const app = express();
 
 
-app.use(express.json());
+app.use(express.json()); //middleware
 
 
 app.get('/', (req, res, next) => {
     res.json("hello")
+});
+app.post('/', (req, res, next) => {
+    res.json("hello 2")
 });
 
 app.post('/user', (req,res,next) => {
