@@ -39,6 +39,7 @@ app.use((err, req, res, next) => {
     res.send(err.message);
 })
 
+// console.log('test')
 
 const port = process.env.PORT;
 
