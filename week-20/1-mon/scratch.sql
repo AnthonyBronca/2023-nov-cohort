@@ -1,71 +1,61 @@
 
+
 -- comment --
 
 
--- Create a table called tenants --
 CREATE TABLE tenants (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     first_name VARCHAR(30) NOT NULL,
     unit_number INTEGER NOT NULL,
     rent INTEGER NOT NULL,
-    due FLOAT(7,2) DEFAULT 0.00
+    due FLOAT(6,2) DEFAULT 0.00
 );
 
+-- for float - 1st param -> how many numbers total --
+-- for float - 2nd param -> how precise the decimals are
 
--- Insert data values into the tenants table --
-INSERT INTO tenants VALUES (
-    1,
-    "anthony",
-    300,
-    1000,
-    0
-);
-
-INSERT INTO tenants VALUES (
-    2,
-    "sam",
-    320,
-    800,
-    30
-);
-
--- Look up data within the tenants table --
-SELECT * FROM tenants;
-SELECT id, first_name FROM tenants WHERE id=1; -- query data and onyl bring in id and first_naem
-SELECT * FROM tenants WHERE id=1;
+-- INSERT INTO tenants VALUES (
+-- 1,
+-- "anthony",
+-- 300,
+-- 1000,
+-- 0.00
+-- );
 
 
+ -- CREATE DATA --
 INSERT INTO tenants (first_name, unit_number, rent)
 VALUES
-("will", 400, 2000),
-("bob", 500, 1700);
+("sam", 320, 800),
+("bob", 321, 900),
+("billy", 322, 820),
+("jane", 323, 860),
+("kate", 324, 910),
+("will", 325, 1000)
+;
 
--- This will error out as we need to pass in all the fields --
--- since we arent specifying --
--- INSERT INTO tenants
--- VALUES
--- ("test", 700, 800);
+-- look up data --
 
--- More specific search
-SELECT * FROM tenants WHERE due > 0;
-
-UPDATE tenants SET due = 0 WHERE first_name="sam";
-
-UPDATE tenants SET due = -1 WHERE first_name="sam";
-
-DELETE FROM tenants WHERE id=4;
+SELECT * FROM tenants; -- select all columns from tenants table
+SELECT first_name, rent FROM tenants; -- select specified columns from tenants table
+SELECT * FROM tenants WHERE rent >= 1000; -- use where clause to specify query
 
 
--- transaction > more advanced so disregard for now --
+-- update --
+UPDATE tenants SET due=800 WHERE id=2;
 
-BEGIN TRANSACTION;
+-- to delete data --
 
-UPDATE tenants SET due = 0 WHERE first_name="sam";
+DELETE FROM tenants WHERE first_name="sam";
 
-DELETE FROM tenants WHERE id=2;
 
--- to revert run --
-ROLLBACK
+-- BEGIN TRANSACTION;
 
--- to commit --
-COMMIT TRANSACTION
+-- DROP TABLE tenants;
+
+-- -- if we want to revert changes --
+
+-- ROLLBACK;
+
+-- -- IF WE WANT TO KEEP CHANGES --
+-- COMMIT TRANSACTION;
