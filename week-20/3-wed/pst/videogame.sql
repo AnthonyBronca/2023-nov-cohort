@@ -1,3 +1,8 @@
+PRAGMA foreign_keys = ON;
+
+DROP TABLE IF EXISTS players;
+DROP TABLE IF EXISTS spells;
+DROP TABLE IF EXISTS player_spells;
 
 
 -- Many-to-many example
@@ -16,12 +21,22 @@ CREATE TABLE spells (
     spell_description VARCHAR(255)
 );
 
+-- bad practice for delete --
+-- CREATE TABLE player_spells (
+--     player_id INTEGER,
+--     spell_id INTEGER,
+--     -- relationships --
+--     FOREIGN KEY (player_id) REFERENCES players(id),
+--     FOREIGN KEY (spell_id) REFERENCES spells(id)
+-- );
+
+-- cascade delete version --
 CREATE TABLE player_spells (
     player_id INTEGER,
     spell_id INTEGER,
     -- relationships --
-    FOREIGN KEY (player_id) REFERENCES players(id),
-    FOREIGN KEY (spell_id) REFERENCES spells(id)
+    FOREIGN KEY (player_id) REFERENCES players(id) ON DELETE CASCADE,
+    FOREIGN KEY (spell_id) REFERENCES spells(id) ON DELETE CASCADE
 );
 
 
@@ -63,7 +78,7 @@ INSERT INTO player_spells VALUES
 
 
 -- get the players --
-SELECT * FROM players;
+-- SELECT * FROM players;
 
 -- id  username
 -- --  ------------
@@ -74,7 +89,7 @@ SELECT * FROM players;
 -- 5   pkGod
 
 -- get all the spells --
-SELECT * FROM spells;
+-- SELECT * FROM spells;
 
 -- id  spell_name       spell_description
 -- --  ---------------  ------------------------------------------------------------
@@ -87,18 +102,22 @@ SELECT * FROM spells;
 -- 5   dark matter      one shot noobs with dark matter
 -- 6   light matter     prevent the use of dark matter
 
+-- delete spell 5 --
+DELETE FROM spells WHERE id=5;
+SELECT * FROM player_spells;
+
 
 -- get the spells that belong to each user --
 
-SELECT
-    players.username,
-    spells.spell_name
-FROM
-    players
-JOIN
-    player_spells ON players.id = player_spells.player_id
-JOIN
-    spells ON player_spells.spell_id = spells.id;
+-- SELECT
+--     players.username,
+--     spells.spell_name
+-- FROM
+--     players
+-- JOIN
+--     player_spells ON players.id = player_spells.player_id
+-- JOIN
+--     spells ON player_spells.spell_id = spells.id;
 
 -- username      spell_name
 -- ------------  ---------------
