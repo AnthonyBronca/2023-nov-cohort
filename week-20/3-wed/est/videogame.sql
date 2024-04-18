@@ -1,5 +1,12 @@
--- MANY-TO-MANY EXAMPLE FILE --
+PRAGMA foreign_keys = ON
+-- drop commands to read the file better --
 
+DROP TABLE IF EXISTS players;
+DROP TABLE IF EXISTS spells;
+DROP TABLE IF EXISTS player_spells;
+
+
+-- MANY-TO-MANY EXAMPLE FILE --
 
 -- create a table for players --
 CREATE TABLE players (
@@ -25,6 +32,14 @@ CREATE TABLE player_spells (
     FOREIGN KEY (player_id) REFERENCES players(id),
     FOREIGN KEY (spell_id) REFERENCES spells(id)
 );
+-- GOOD CODE FOR CASCADE --
+
+-- CREATE TABLE player_spells (
+--     player_id INTEGER,
+--     spell_id INTEGER,
+--     FOREIGN KEY (player_id) REFERENCES players(id) ON DELETE CASCADE,
+--     FOREIGN KEY (spell_id) REFERENCES spells(id) ON DELETE CASCADE
+-- );
 
 -- create some dummy data for each of the tables --
 
@@ -64,8 +79,10 @@ INSERT INTO spells (spell_name, spell_description) VALUES
 ("blizzard", "launches AOE spell with falling icicles. Change to freeze enemy"),
 ("water rush", "stream water from your palms to sweep away target"),
 ("lightning storm", "create a storm of lightning that lasts for 30 seconds with a change to paralyze target"),
-("dark matter", "one shot noobs with dark matter"),
+("dark matter", "one shot noobs with dark matter"), -- >delete this
 ("light matter", "prevent the use of dark matter");
+
+
 
 INSERT INTO player_spells VALUES
 (1, 1),
@@ -117,3 +134,10 @@ JOIN
 -- pkGod         lightning storm
 -- pkGod         dark matter
 -- pkGod         light matter
+
+
+
+-- CASCADE DELETE --
+
+DELETE FROM spells WHERE id=5;
+SELECT * FROM player_spells;
