@@ -1,4 +1,8 @@
+PRAGMA foreign_keys=ON;
+
 -- Menu Item --
+
+DROP TABLE IF EXISTS menu_items;
 
 CREATE TABLE menu_items (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -30,7 +34,7 @@ SELECT * FROM menu_items;
 
  -- manager wants us to get all the item names and their price  where price is greater than 5 --
 
-SELECT name, price FROM menu_items WHERE price > 5;
+-- SELECT name, price FROM menu_items WHERE price > 5;
 
 -- name                  price
 -- --------------------  -----
@@ -44,22 +48,22 @@ SELECT name, price FROM menu_items WHERE price > 5;
 
  -- manager wants to update item with id 7, to be sold 10 times --
 
-UPDATE menu_items SET amount_sold=10 WHERE id=7;
+-- UPDATE menu_items SET amount_sold=10 WHERE id=7;
 
 
 -- delete item 10 --
 
-DELETE FROM menu_items WHERE id=10;
+-- DELETE FROM menu_items WHERE id=10;
 
--- delete all items where amount_sold sold is 9 or less use a transaction --
+-- -- delete all items where amount_sold sold is 9 or less use a transaction --
 
-BEGIN TRANSACTION;
+-- BEGIN TRANSACTION;
 
-DELETE FROM menu_items WHERE amount_sold <= 9;
--- DELETE FROM menu_items WHERE amount_sold < 10;
+-- DELETE FROM menu_items WHERE amount_sold <= 9;
+-- -- DELETE FROM menu_items WHERE amount_sold < 10;
 
--- to undo transaction --
-ROLLBACK;
+-- -- to undo transaction --
+-- ROLLBACK;
 
--- to save transaction --
-COMMIT;
+-- -- to save transaction --
+-- COMMIT;
