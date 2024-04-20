@@ -1,0 +1,35 @@
+# Week 20 Assessment Study Guide
+
+- Know how to read a database schema and build SQL tables using that information
+
+- Know how to create tables and data using SQL
+- Know how to set up constraints and data types on each table column
+- Be familiar with SQL strict syntax and common errors from syntax mistakes
+- Know how to use Sqlite3 and create databases based on a sql file
+- Know how to create relationships (one-to-many && many-to-many)
+- Know how to handle issues where you can not delete tables that foreign tables rely on forinformation
+- Know how to handle issue where running a file a 2nd time runs into issues with tables already existing
+- Know how to insert data both for entire table columns, and specified columns
+- Know how to handle insert when you need to account for NULL data
+- Know how to query specified table columns, and use filtering
+- Know how to organize data queried
+- Know how to check for information within a range
+- Know how to query for tables using a one-to-many
+- Know how to query for tables using a many-to-many
+- Know how to delete data from tables
+
+
+## Recommended practices
+
+- Do the practice assessment a MINIMUM of 5 times
+- Basic SQL practice (do this 2 times) -> https://github.com/appacademy/aa10-sql-basics
+- practice relationships (do 2 times) -> https://appacademy.instructure.com/courses/334/assignments/18618?module_item_id=59728
+- SQL-intermediate querying (do once) -> https://github.com/appacademy/aa10-sql-intermediate
+
+
+While this may seem like a lot of work, the idea is to learn it the first 2 times and be able to build the muscle memory the next few times so you can fly through any questions you may get on Monday. Remember, you will only have 90 minutes to take the assessment so speed will be your friend. Having to look up information may slow you down, but having these practices completed will set you up really well.
+
+
+## Kahoot Link
+- https://kahoot.it/challenge/08964746?challenge-id=a9080232-c4d7-46bc-859e-176b0e32da17_1713652225244
+
