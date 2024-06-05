@@ -278,10 +278,10 @@ With bun:
 `bun create vite`
 
 
-
-
 ### Practices
 
 Functional Components - JSX (30 min)
+
 Functional Components - Props (30 min)
-Functional Component s- Lists (30 min)
+
+Functional Components - Lists (30 min)

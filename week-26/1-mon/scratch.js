@@ -1,11 +1,9 @@
-window.onload("DOMContentLoaded", ()=> {
+window.addEventListener("DOMContentLoaded", ()=> {
 
-    const newNode = <h1>hello</h1>
+    const hi = document.querySelector('hi');
 
-    newNode.class = "hello"
+    const newNode = <h1>Hi how are you</h1>;
 
-    body.append(newNode)
+    hi.append(newNode);
 
-
-
-})
+});
