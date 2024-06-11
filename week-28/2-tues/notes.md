@@ -113,7 +113,7 @@ const AuthContext = createContext(null);
 
 2. Make a context object
 
-In the same `ThemeContext.js` file, we can create our functions that allow us to read the context.
+In some file we want to access context, we can create our functions that allow us to read the context.
 
 ```js
 function Button() {
