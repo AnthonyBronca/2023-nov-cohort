@@ -1,0 +1,11 @@
+.light{
+    color: black;
+}
+
+.dark{
+    color: white
+}
+
+.button-light{
+    background-color: blue;
+}
