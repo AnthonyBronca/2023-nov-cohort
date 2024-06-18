@@ -198,7 +198,7 @@ function pokemonReducer(state = initialState, action) {
             for(let mon of action.payload){
                 newState.byId[mon.id] = mon; // sets individual pokemon
             }
-            return {newState};
+            return newState;
         case CREATE_POKEMON:
             newState = {...state}; // shallow copy
             newState.allPokemon = [...newState.allPokemon, action.payload]; //adds newPokemon and makes a new array shallow copied
@@ -221,7 +221,7 @@ export default pokemonReducer;
 import {useSelector} from 'react-redux';
 
 const PokemonComponent = () => {
-    const pokemon = useSelector((state)=> state.pokemonState);
+    const pokemon = useSelector((state)=> state.pokemonState.allPokemon);
 
     if(!pokemon){
         return <h1>Loading...</h1>
