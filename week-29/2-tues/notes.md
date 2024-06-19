@@ -74,6 +74,7 @@ We can condense some of these to create the 9 step plan
 9. Browser (with state now changed)
 
 
+![data flow drawing](./dataflow-drawing.png)
 
 ## Redux Set Up
 
