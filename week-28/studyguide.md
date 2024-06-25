@@ -67,8 +67,11 @@
 
 ### Assessment Information
 Time: 2 hours
+
 Total Specs: 36
+
 Total Points: 54
+
 Passing Score: 43
 
 ### Resources
